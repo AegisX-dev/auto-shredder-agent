@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 data/*.db
 .pytest_cache/
+session_state.md
+walkthrough.md
