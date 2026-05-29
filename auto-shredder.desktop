@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Auto-Shredder Agent
+Comment=Local AI-powered file retention dashboard
+Exec=xdg-open http://127.0.0.1:5050
+Icon=user-trash
+Terminal=false
+Categories=Utility;System;
+StartupNotify=true
