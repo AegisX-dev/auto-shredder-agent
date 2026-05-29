@@ -1,0 +1,4 @@
+fastapi==0.110.0
+uvicorn==0.28.0
+watchdog==4.0.0
+send2trash==1.8.2

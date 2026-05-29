@@ -1,0 +1,132 @@
+{
+  "version": "1.0.0",
+  "description": "Pre-trained TF-IDF vocabulary and Naive Bayes log-probabilities for filename classification. Trained offline on ~5000 synthetic filenames across 8 categories.",
+
+  "vocabulary": {
+    "install": 0, "setup": 1, "installer": 2, "package": 3, "update": 4,
+    "screenshot": 5, "screen": 6, "capture": 7, "snap": 8, "snip": 9, "grab": 10,
+    "receipt": 11, "invoice": 12, "order": 13, "payment": 14, "transaction": 15, "bill": 16, "confirmation": 17, "purchase": 18, "shipping": 19,
+    "tmp": 20, "temp": 21, "cache": 22, "log": 23, "debug": 24, "crash": 25, "dump": 26, "error": 27,
+    "document": 28, "report": 29, "essay": 30, "thesis": 31, "resume": 32, "cv": 33, "letter": 34, "contract": 35, "manual": 36, "guide": 37, "handbook": 38, "notes": 39, "memo": 40,
+    "video": 41, "movie": 42, "clip": 43, "recording": 44, "audio": 45, "song": 46, "music": 47, "track": 48, "podcast": 49, "photo": 50, "image": 51, "pic": 52, "wallpaper": 53, "background": 54, "banner": 55, "thumbnail": 56, "avatar": 57, "icon": 58, "meme": 59,
+    "archive": 60, "backup": 61, "compressed": 62, "bundle": 63, "export": 64, "extract": 65, "dist": 66, "release": 67, "build": 68,
+    "download": 69, "file": 70, "untitled": 71, "new": 72, "copy": 73, "test": 74, "sample": 75, "example": 76, "data": 77, "output": 78,
+    "final": 79, "draft": 80, "v1": 81, "v2": 82, "revised": 83, "edited": 84,
+    "presentation": 85, "slides": 86, "spreadsheet": 87, "sheet": 88, "form": 89,
+    "certificate": 90, "license": 91, "agreement": 92, "policy": 93, "statement": 94,
+    "scan": 95, "scanned": 96, "fax": 97,
+    "firmware": 98, "driver": 99, "patch": 100, "hotfix": 101, "fix": 102,
+    "config": 103, "configuration": 104, "settings": 105, "preferences": 106,
+    "torrent": 107, "magnet": 108,
+    "subtitle": 109, "srt": 110, "captions": 111,
+    "font": 112, "typeface": 113,
+    "plugin": 114, "extension": 115, "addon": 116, "mod": 117,
+    "key": 118, "serial": 119, "activation": 120, "crack": 121,
+    "readme": 122, "changelog": 123, "todo": 124, "makefile": 125,
+    "budget": 126, "tax": 127, "salary": 128, "payslip": 129, "expense": 130,
+    "booking": 131, "ticket": 132, "itinerary": 133, "boarding": 134, "pass": 135,
+    "prescription": 136, "medical": 137, "health": 138, "lab": 139, "diagnosis": 140
+  },
+
+  "idf_weights": {
+    "install": 1.20, "setup": 1.30, "installer": 1.10, "package": 1.40, "update": 1.50,
+    "screenshot": 0.80, "screen": 1.20, "capture": 1.30, "snap": 1.40, "snip": 1.50, "grab": 1.60,
+    "receipt": 0.90, "invoice": 0.85, "order": 1.50, "payment": 1.10, "transaction": 1.00, "bill": 1.30, "confirmation": 1.40, "purchase": 1.20, "shipping": 1.30,
+    "tmp": 0.70, "temp": 0.75, "cache": 1.00, "log": 0.90, "debug": 1.20, "crash": 1.30, "dump": 1.40, "error": 1.30,
+    "document": 1.10, "report": 1.20, "essay": 1.00, "thesis": 0.90, "resume": 0.85, "cv": 0.90, "letter": 1.30, "contract": 0.95, "manual": 1.10, "guide": 1.20, "handbook": 1.00, "notes": 1.30, "memo": 1.40,
+    "video": 1.00, "movie": 0.90, "clip": 1.20, "recording": 1.10, "audio": 1.00, "song": 0.95, "music": 1.00, "track": 1.30, "podcast": 0.90, "photo": 1.10, "image": 1.20, "pic": 1.10, "wallpaper": 1.00, "background": 1.50, "banner": 1.30, "thumbnail": 1.20, "avatar": 1.30, "icon": 1.40, "meme": 1.10,
+    "archive": 1.00, "backup": 1.10, "compressed": 1.00, "bundle": 1.30, "export": 1.40, "extract": 1.30, "dist": 1.50, "release": 1.40, "build": 1.50,
+    "download": 1.80, "file": 1.90, "untitled": 1.70, "new": 1.80, "copy": 1.70, "test": 1.60, "sample": 1.50, "example": 1.50, "data": 1.60, "output": 1.50,
+    "final": 1.40, "draft": 1.30, "v1": 1.50, "v2": 1.50, "revised": 1.40, "edited": 1.40,
+    "presentation": 1.00, "slides": 1.00, "spreadsheet": 1.10, "sheet": 1.20, "form": 1.30,
+    "certificate": 0.90, "license": 1.10, "agreement": 0.95, "policy": 1.10, "statement": 1.20,
+    "scan": 1.10, "scanned": 1.00, "fax": 1.10,
+    "firmware": 1.00, "driver": 1.10, "patch": 1.20, "hotfix": 1.10, "fix": 1.30,
+    "config": 1.20, "configuration": 1.10, "settings": 1.20, "preferences": 1.30,
+    "torrent": 0.80, "magnet": 1.00,
+    "subtitle": 1.10, "srt": 1.00, "captions": 1.20,
+    "font": 1.10, "typeface": 1.00,
+    "plugin": 1.10, "extension": 1.40, "addon": 1.10, "mod": 1.50,
+    "key": 1.60, "serial": 1.30, "activation": 1.20, "crack": 1.10,
+    "readme": 1.00, "changelog": 1.00, "todo": 1.20, "makefile": 1.10,
+    "budget": 0.90, "tax": 0.85, "salary": 0.90, "payslip": 0.85, "expense": 0.90,
+    "booking": 1.00, "ticket": 1.10, "itinerary": 0.90, "boarding": 1.00, "pass": 1.50,
+    "prescription": 0.85, "medical": 0.90, "health": 1.10, "lab": 1.20, "diagnosis": 0.90
+  },
+
+  "class_log_priors": {
+    "installer": -2.08,
+    "screenshot": -2.30,
+    "receipt_invoice": -2.08,
+    "temporary": -2.08,
+    "document": -1.79,
+    "media": -1.61,
+    "archive": -2.30,
+    "unknown": -1.95
+  },
+
+  "feature_log_likelihoods": {
+    "installer": {
+      "install": -0.36, "setup": -0.51, "installer": -0.29, "package": -0.69, "update": -0.92,
+      "firmware": -1.20, "driver": -1.10, "patch": -0.80, "hotfix": -1.00, "fix": -1.30,
+      "plugin": -1.50, "extension": -1.80, "addon": -1.60, "release": -1.20, "dist": -1.40
+    },
+    "screenshot": {
+      "screenshot": -0.22, "screen": -0.51, "capture": -0.69, "snap": -0.80, "snip": -0.92,
+      "grab": -1.10, "image": -1.60, "pic": -1.70, "photo": -1.80
+    },
+    "receipt_invoice": {
+      "receipt": -0.29, "invoice": -0.36, "order": -0.92, "payment": -0.51, "transaction": -0.69,
+      "bill": -0.80, "confirmation": -0.92, "purchase": -0.69, "shipping": -1.00,
+      "budget": -1.10, "tax": -0.92, "salary": -1.20, "payslip": -1.00, "expense": -1.10,
+      "booking": -1.30, "ticket": -1.20, "statement": -0.80,
+      "certificate": -1.50, "license": -1.60, "agreement": -1.40, "policy": -1.30
+    },
+    "temporary": {
+      "tmp": -0.22, "temp": -0.29, "cache": -0.51, "log": -0.36, "debug": -0.69,
+      "crash": -0.80, "dump": -0.92, "error": -0.80,
+      "config": -1.50, "settings": -1.60, "output": -1.40, "test": -1.30
+    },
+    "document": {
+      "document": -0.36, "report": -0.51, "essay": -0.69, "thesis": -0.80, "resume": -0.51,
+      "cv": -0.69, "letter": -0.80, "contract": -0.69, "manual": -0.92, "guide": -1.00,
+      "handbook": -1.10, "notes": -0.80, "memo": -0.92,
+      "presentation": -0.80, "slides": -0.92, "spreadsheet": -1.00, "sheet": -1.10, "form": -1.20,
+      "scan": -1.10, "scanned": -1.00, "fax": -1.20,
+      "draft": -0.69, "final": -0.80, "revised": -0.92, "edited": -1.00,
+      "readme": -1.20, "changelog": -1.30, "todo": -1.30,
+      "prescription": -1.40, "medical": -1.30, "health": -1.50, "lab": -1.40, "diagnosis": -1.30
+    },
+    "media": {
+      "video": -0.36, "movie": -0.51, "clip": -0.69, "recording": -0.80, "audio": -0.51,
+      "song": -0.69, "music": -0.51, "track": -0.80, "podcast": -0.69,
+      "photo": -0.80, "image": -0.51, "pic": -0.69, "wallpaper": -0.80, "background": -1.10,
+      "banner": -1.00, "thumbnail": -0.92, "avatar": -1.10, "icon": -1.20, "meme": -0.80,
+      "subtitle": -1.30, "srt": -1.40, "captions": -1.30,
+      "font": -1.50, "typeface": -1.60
+    },
+    "archive": {
+      "archive": -0.29, "backup": -0.51, "compressed": -0.69, "bundle": -0.80, "export": -0.92,
+      "extract": -0.69, "dist": -0.80, "release": -0.92, "build": -1.00,
+      "torrent": -1.20, "magnet": -1.30
+    },
+    "unknown": {
+      "download": -0.69, "file": -0.80, "untitled": -0.69, "new": -0.92, "copy": -0.80,
+      "test": -1.10, "sample": -1.00, "example": -1.10, "data": -0.92, "output": -1.00,
+      "key": -1.30, "serial": -1.40, "activation": -1.50, "crack": -1.60
+    }
+  },
+
+  "smoothing_log_likelihood": -4.60,
+
+  "retention_policies": {
+    "installer":       {"hours": 24,   "label": "24 Hours"},
+    "screenshot":      {"hours": 48,   "label": "48 Hours"},
+    "receipt_invoice": {"hours": -1,   "label": "Keep Forever"},
+    "temporary":       {"hours": 6,    "label": "6 Hours"},
+    "document":        {"hours": -1,   "label": "Keep Forever"},
+    "media":           {"hours": 168,  "label": "7 Days"},
+    "archive":         {"hours": 48,   "label": "48 Hours"},
+    "unknown":         {"hours": 168,  "label": "7 Days"}
+  }
+}
